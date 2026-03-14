@@ -1,0 +1,128 @@
+/* Glass Card */
+.food-item{
+    width: 100%;
+    margin: auto;
+
+    border-radius: 20px;
+
+    /* GLASS EFFECT */
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+
+    transition: 0.3s;
+    animation: fadeIn 1s;
+
+    overflow: hidden;
+}
+
+/* Hover floating effect */
+.food-item:hover{
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Image */
+.food-item-image{
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+}
+
+/* Info section */
+.food-item-info{
+    padding: 20px;
+    color: white;
+}
+
+/* Name & rating */
+.food-item-name-rating{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.food-item-name-rating p{
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+}
+
+.food-item-name-rating img{
+    width: 70px;
+}
+
+/* Description */
+.food-item-desc{
+    color: rgba(100, 96, 96, 0.7);
+    font-size: 13px;
+}
+
+/* Price */
+.food-item-price{
+    color: #ff7b54;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 12px 0px;
+}
+
+/* Image container */
+.food-item-img-container{
+    position: relative;
+}
+
+/* Add button */
+.food-item-img-container .add{
+    width: 40px;
+
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    padding: 6px;
+
+    transition: 0.3s;
+}
+
+.food-item-img-container .add:hover{
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Counter */
+.food-item-counter{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 8px 12px;
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.food-item-counter-img{
+    width: 30px;
+    cursor: pointer;
+}

@@ -1,0 +1,70 @@
+/* Glass container */
+.app-download{
+    margin: auto auto;
+    margin-top: 100px;
+
+    text-align: center;
+
+    font-size: max(3vw, 20px);
+    font-weight: 500;
+
+    color: rgb(153, 138, 138);
+
+    /* GLASS EFFECT */
+    background: rgba(131, 126, 126, 0);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+
+    padding: 40px 20px;
+
+    max-width: 800px;
+}
+
+/* platforms container */
+.app-download-platforms{
+    display: flex;
+
+    justify-content: center;
+
+    gap: max(2vw,10px);
+
+    margin-top: 40px;
+}
+
+/* Glass button effect for images */
+.app-download-platforms img{
+
+    width: max(30vw,120px);
+    max-width: 180px;
+
+    transition: 0.4s;
+
+    cursor: pointer;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    padding: 5px;
+}
+
+/* Hover effect */
+.app-download-platforms img:hover{
+
+    transform: scale(1.08) translateY(-5px);
+
+    background: rgba(255, 255, 255, 0.2);
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}

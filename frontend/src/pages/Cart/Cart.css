@@ -1,0 +1,269 @@
+/* Glass Cart Container */
+.cart{
+    margin-top: 100px;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    /* GLASS EFFECT */
+    background: rgba(255, 255, 255, 0.938);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+
+    color: rgb(247, 158, 158);
+}
+
+/* Title row */
+.cart-items-title{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+
+    align-items: center;
+    font-weight: bold;
+
+    color: rgba(20, 20, 20, 0.7);
+
+    font-size: max(1vw, 12px);
+
+    margin-bottom: 15px;
+}
+
+/* Each cart item row */
+.cart-items-item{
+    margin: 15px 0px;
+
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+
+    align-items: center;
+
+    padding: 10px;
+
+    border-radius: 12px;
+
+    background: rgba(71, 67, 67, 0);
+
+    border: 1px solid rgba(124, 108, 108, 0.144);
+
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.cart-items-item:hover{
+    background: rgba(150, 144, 144, 0.288);
+    transform: translateY(-3px);
+}
+
+/* Image */
+.cart-items-item img{
+    width: 50px;
+    border-radius: 10px;
+}
+
+/* Divider */
+.cart hr{
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.2);
+
+    border: none;
+
+    margin: 10px 0px;
+}
+
+/* Remove (cross) button */
+.cart-items-item .cross{
+    cursor: pointer;
+
+    font-weight: bold;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    transition: 0.3s;
+}
+
+.cart-items-item .cross:hover{
+    color: #ff7b54;
+    transform: scale(1.2);
+}
+
+
+/* Bottom Section Layout */
+.cart-bottom{
+    margin-top: 80px;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: max(12vw, 20px);
+
+    flex-wrap: wrap;
+}
+
+/* ================== */
+/* Cart Total Section */
+/* ================== */
+
+.cart-total{
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    /* GLASS EFFECT */
+    background: rgba(218, 210, 210, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+
+    color: rgb(88, 86, 86);
+}
+
+.cart-total-details{
+    display: flex;
+    justify-content: space-between;
+
+    color: rgba(128, 121, 121, 0.747);
+}
+.free {
+    color: #28a745;
+     font-weight: 600;
+}
+
+.cart-total hr{
+    margin: 10px 0px;
+
+    height: 1px;
+    border: none;
+
+    background: rgba(75, 72, 72, 0.925);
+}
+
+/* Checkout Button - Glass Style */
+.cart-total button{
+    border: 1px solid rgba(134, 130, 130, 0.897);
+
+    color: rgb(90, 84, 84);
+
+    background: rgba(201, 206, 231, 0.15);
+
+    width: max(15vw,200px);
+
+    padding: 12px 0px;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s;
+}
+
+.cart-total button:hover{
+    background: rgba(80, 74, 74, 0.25);
+    transform: translateY(-3px);
+}
+
+/* ================== */
+/* Promo Code Section */
+/* ================== */
+
+.cart-promocode{
+    flex: 1;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    /* GLASS EFFECT */
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+
+    color: rgb(100, 93, 93);
+}
+
+.cart-promocode p{
+    color: rgb(83, 79, 79);
+}
+
+/* Input Box */
+.cart-promocode-input{
+    margin-top: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 8px;
+
+    border-radius: 50px;
+
+    background: rgba(97, 89, 89, 0.295);
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cart-promocode-input input{
+    background: transparent;
+    border: none;
+    outline: none;
+
+    padding-left: 15px;
+
+    color: rgb(24, 23, 23);
+
+    flex: 1;
+}
+
+/* Apply Button */
+.cart-promocode-input button{
+    width: max(10vw, 120px);
+
+    padding: 10px;
+
+    background: rgba(138, 131, 131, 0.2);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    color: white;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.cart-promocode-input button:hover{
+    background: rgba(207, 203, 203, 0.35);
+}
+
+@media (max-width:750px){
+    .cart-bottom{
+        flex-direction: column-reverse;
+    }
+    .cart-promocode{
+        justify-content: start;
+    }
+}
