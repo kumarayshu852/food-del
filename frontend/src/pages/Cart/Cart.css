@@ -262,8 +262,24 @@
 @media (max-width:750px){
     .cart-bottom{
         flex-direction: column-reverse;
+        gap: 20px;
     }
+
     .cart-promocode{
-        justify-content: start;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .cart-promocode input{
+        width: 100%;
+    }
+
+    .cart-promocode button{
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .cart-total{
+        width: 100%;
     }
 }
