@@ -6,8 +6,11 @@ import userModel from "../models/userModel.js";
 
 // placing user order for frontend
 const placeOrder =async (req,res)=>{
+    console.log("Model schema paths:", Object.keys(orderModel.schema.paths));
     const frontend_url ="https://food-del-pink-kappa.vercel.app";
     try{
+
+       
         
          
         const newOrder =new orderModel({
@@ -16,8 +19,12 @@ const placeOrder =async (req,res)=>{
             amount:req.body.amount,
             address:req.body.address,
             cafe:req.body.cafe,
-            payment:false
-        })
+            payment:false,
+            
+        
+         })
+         
+         
         await newOrder.save();
         await userModel.findByIdAndUpdate(req.userId,{cartData:{}});
 

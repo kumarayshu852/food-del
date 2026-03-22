@@ -1,23 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Orders.css";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
 import { assets } from "../../assets/assets.js";
+import { format } from "timeago.js";
 
 const Orders = ({ url }) => {
-
     const [orders, setOrders] = useState([]);
+    const [timeUpdate, setTimeUpdate] = useState(0);
 
     const fetchAllOrders = async () => {
-        const response = await axios.get(url + "/api/order/list");
-        if (response.data.success) {
-            setOrders(response.data.data);
-            console.log(response.data.data)
-        }
-        else {
-            toast.error("Error")
+        try {
+            const response = await axios.get(url + "/api/order/list");
+            if (response.data.success) {
+                // Reverse isliye taaki naya order hamesha top par dikhe
+                setOrders(response.data.data.reverse());
+            } else {
+                toast.error("Error fetching orders");
+            }
+        } catch (error) {
+            console.error("Fetch error:", error);
         }
     }
 
@@ -33,9 +35,15 @@ const Orders = ({ url }) => {
 
     useEffect(() => {
         fetchAllOrders();
-    }, [])
 
+        // Har 30 second mein UI refresh hogi
+        const interval = setInterval(() => {
+            fetchAllOrders(); 
+            setTimeUpdate(prev => prev + 1); 
+        }, 30000); 
 
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div className="order add">
@@ -46,28 +54,31 @@ const Orders = ({ url }) => {
                         <img src={assets.parcel_icon} alt="" />
                         <div>
                             <p className="order-item-food">
-                                {order.items.map((item, index) => {
-                                    if (index === order.items.length - 1) {
-                                        return item.name + "x" + item.quantity
-                                    }
-                                    else {
-                                        return item.name + " x" + item.quantity + ','
-                                    }
-                                })}
+                                {order.items.map((item, i) => (
+                                    i === order.items.length - 1 
+                                    ? item.name + " x" + item.quantity 
+                                    : item.name + " x" + item.quantity + ", "
+                                ))}
                             </p>
                             <p className="order-item-name">
                                 {order.address.firstName + " " + order.address.lastName}
                             </p>
                             <div className="order-item-address">
-                                <p>{order.address.studentId}</p>
+                                <p>ID: {order.address.studentId}</p>
                                 <p>{order.address.department}, {order.address.section}</p>
                                 <br />
-                                <p>{order.cafe}</p>
+                                <p><strong>Cafe:</strong> {order.cafe}</p>
                             </div>
                             <p className="order-item-phone">{order.address.phone}</p>
                         </div>
-                        <p>Items:{order.items.length}</p>
+                        <p>Items: {order.items.length}</p>
                         <p>₹{order.amount}</p>
+                        
+                        {/* THE FIX IS HERE: 'order.createdAt' use karein, 'orders' nahi */}
+                        <p className="order-time">
+                       {format(new Date(order.createdAt || order.data))}
+                        </p>
+
                         <p className="payment-status">
                             Payment: {order.payment ? "Paid Online" : "Cash on Delivery"}
                         </p>
@@ -82,4 +93,5 @@ const Orders = ({ url }) => {
         </div>
     )
 }
-export default Orders
+
+export default Orders;
