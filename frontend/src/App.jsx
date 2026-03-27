@@ -10,7 +10,8 @@ import ChatRedirect from "./components/chattifly/Chattifly";
 import Chatbot from "./components/AIchatbot/AIchatbot";
 import Verify from "./pages/Verify/Verify";
 import MyOrders from "./pages/MyOrders/MyOrders";
-
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 const App= () =>{
 
   const [showLogin,setShowLogin]=useState(false)
@@ -19,6 +20,11 @@ const App= () =>{
     {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
      <div className="app">
       <Navbar setShowLogin={setShowLogin}/>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        
+       />
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/cart" element={<Cart/>}/>
@@ -30,6 +36,7 @@ const App= () =>{
       </Routes>
       </div>
       <Footer/>
+      
       
       
       

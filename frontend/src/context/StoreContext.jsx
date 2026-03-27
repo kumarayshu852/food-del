@@ -1,9 +1,16 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import { toast } from 'react-toastify';
+import { useContext } from "react";
 
 export const StoreContext = createContext(null)
 
+
+
+
 const StoreContextProvider =(props)=>{
+    
 
 
     const [cartItems, setCartItems] =useState({});
@@ -12,9 +19,11 @@ const StoreContextProvider =(props)=>{
     const [food_list,setFoodList] =useState([]);
 
     const addToCart =async(itemId)=>{
+        const itemInfo= food_list.find(item=> item._id === itemId);
         if (!cartItems[itemId]){
              
             setCartItems((prev)=>({...prev,[itemId]:1}))
+            toast.success(`${itemInfo?.name} added to Cart`);
         }
         else{
             setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
@@ -25,7 +34,9 @@ const StoreContextProvider =(props)=>{
     }
 
     const removeFromCart =async(itemId)=>{
+        const itemInfo = food_list.find(item => item._id === itemId);
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}));
+        toast.error(`${itemInfo?.name} removed from Cart`);
         if(token) {
             await axios.post(url+"/api/cart/remove",{itemId},{headers:{token}})
         }
@@ -82,7 +93,8 @@ const StoreContextProvider =(props)=>{
         getTotalCartAmount,
         url,
         token,
-        setToken
+        setToken,
+        ToastContainer
     }
     return (
         <StoreContext.Provider value={contextValue}>

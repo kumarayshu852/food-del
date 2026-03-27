@@ -2,12 +2,38 @@ import React, { useContext } from 'react';
 import './Cart.css'
 import { StoreContext } from '../../context/StoreContext';
 import { useNavigate } from 'react-router-dom';
+import { useState ,useEffect} from 'react';
 
 const Cart =() =>{
-
-    const {cartItems, food_list, removeFromCart, getTotalCartAmount,url }=useContext(StoreContext);
+    const [loading, setLoading] =useState(true);
+     const {cartItems, food_list, removeFromCart, getTotalCartAmount,url }=useContext(StoreContext);
 
     const navigate =useNavigate();
+
+
+    useEffect(() => {
+  const loadData = async () => {
+    setLoading(true);
+
+    // simulate ya real API
+    await new Promise(res => setTimeout(res, 1000)); // testing
+
+    setLoading(false);
+  };
+
+  loadData();
+}, []);
+
+if (loading) {
+  return (
+    <div className="cart-skeleton">
+      <div className="skeleton-item"></div>
+      <div className="skeleton-item"></div>
+      <div className="skeleton-item"></div>
+    </div>
+  );
+}
+   
     return(
         <div>
             <div className='cart-items'>
@@ -62,16 +88,7 @@ const Cart =() =>{
                         </div>
                         <button onClick={()=>navigate('/order')}>PROCEED TO CHECkOUT</button>
                         </div>
-                        <div className='cart-promocode'>
-                            <div>
-                                <p>If you have a promo code, Enter it here</p>
-                                <div className='cart-promocode-input'>
-                                    <input type='text' placeholder='promo code'/>
-                                    <button>Submit</button>
-                                </div>
-                            </div>
                         
-                    </div>
                 </div>
             </div>
             </div>

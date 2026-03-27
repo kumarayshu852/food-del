@@ -28,3 +28,9 @@ a{
     opacity: 1;
   }
 }
+
+@media (max-width: 768px) {
+  html {
+    font-size: 18px;   /* 👈 थोड़ा बड़ा */
+  }
+}

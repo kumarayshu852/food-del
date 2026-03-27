@@ -33,11 +33,11 @@ const Navbar = ({ setShowLogin }) => {
                 </ul>
 
                 <div className="navbar-right">
-                    <img src={assets.search_icon} alt=""/>
+                  <span className="material-icons">search</span>
 
                     <div className="navbar-search-icon">
                         <Link to="/cart">
-                            <img src={assets.basket_icon} alt=""/>
+                            <span className="material-icons">shopping_cart</span>
                         </Link>
                         <div className={getTotalCartAmount()===0?"":"dot"}></div>
                     </div>
